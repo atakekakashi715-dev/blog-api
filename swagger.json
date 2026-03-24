@@ -1,0 +1,27 @@
+
+
+
+
+
+ {
+   "openapi": "3.0.0",
+   "info": {
+     "title": "Documentation API Blog",
+     "version": "1.0.0",
+     "description": "Système de gestion d'articles avec SQLite3"
+   },
+   "paths": {
+     "/api/articles": {
+       "get": { "summary": "Lister/Filtrer les articles", "responses": { "200": { "description": "OK" } } },
+       "post": { "summary": "Créer un article", "responses": { "201": { "description": "Créé" } } }
+     },
+     "/api/articles/{id}": {
+       "get": { "summary": "Détails d'un article", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "OK" }, "404": { "description": "Non trouvé" } } },
+       "put": { "summary": "Modifier un article", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Modifié" } } },
+       "delete": { "summary": "Supprimer un article", "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }], "responses": { "200": { "description": "Supprimé" } } }
+     },
+     "/api/articles/search": {
+       "get": { "summary": "Rechercher par texte", "parameters": [{ "name": "query", "in": "query", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "OK" } } }
+     }
+   }
+ }
